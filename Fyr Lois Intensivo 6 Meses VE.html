@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fyr Lois · Programa Intensivo — Inglés de Intro a C1 en 6 meses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<style>
+  :root{
+    --navy:#132a6b;
+    --navy-deep:#0d1f52;
+    --navy-2:#1e3a8a;
+    --gold:#d4a53a;
+    --gold-2:#b9861f;
+    --green:#7ac142;
+    --green-2:#5fa733;
+    --red:#d63a45;
+    --ink:#0e1340;
+    --muted:#6b7196;
+    --soft:#f4f6fb;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{overflow-x:clip}
+  body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px;width:100%}
+
+  .ph{position:relative;background:linear-gradient(135deg,#e8ecf3,#f4f5f8);border:2px dashed #b8c0d4;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#5a6480;font-weight:800;letter-spacing:.4px;font-size:11px;line-height:1.4;padding:14px;overflow:hidden;text-transform:uppercase}
+  .ph::before{content:"📷";font-size:24px;display:block;margin-bottom:6px;opacity:.6}
+  .ph .pdesc{font-weight:600;color:#7d8aa6;font-size:10px;letter-spacing:.2px;text-transform:none;margin-top:4px;max-width:92%}
+
+  /* NAV */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1200px;margin:0 auto;gap:18px}
+  .logo{display:inline-flex;line-height:0}
+  .logo img{height:38px;width:auto}
+  .nav .phone{font-weight:800;font-size:13px;color:var(--navy);display:inline-flex;align-items:center;gap:6px}
+
+  .cta-pill{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#9ad96a,var(--green-2));color:#fff;font-weight:800;padding:13px 22px;border-radius:999px;box-shadow:0 6px 14px rgba(95,167,51,.35);border:none;cursor:pointer;font-size:14px;transition:transform .15s ease, box-shadow .15s ease;font-family:inherit}
+  .cta-pill:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(95,167,51,.45)}
+  .cta-pill .wa{width:24px;height:24px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:#25d366}
+  .cta-pill .wa img{width:16px;height:16px;display:block}
+  .cta-pill.gold{background:linear-gradient(180deg,var(--gold),var(--gold-2));box-shadow:0 6px 14px rgba(185,134,31,.4);color:#1a1400}
+  .cta-pill.gold .wa{color:#25d366}
+  .cta-pill.huge{font-size:17px;padding:18px 34px}
+
+  /* HERO */
+  .hero{position:relative;min-height:640px;color:#fff;overflow:hidden;display:flex;align-items:center;background:var(--navy-deep)}
+  .hero .ph.hero-bg{position:absolute;inset:0;border:none;background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 55%,#2f52a8 100%);font-size:13px;color:rgba(255,255,255,.5);align-items:flex-end;justify-content:flex-end;padding:24px 32px}
+  .hero .ph.hero-bg::before{font-size:48px;opacity:.55}
+  .hero .ph.hero-bg .pdesc{color:rgba(255,255,255,.45);font-size:12px;max-width:400px;margin-top:8px}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,42,107,.9) 0%,rgba(19,42,107,.6) 48%,rgba(19,42,107,.15) 78%,transparent 100%)}
+  .hero-inner{position:relative;z-index:2;width:100%;padding:64px 0}
+  .hero-card{max-width:640px;background:linear-gradient(180deg,rgba(19,42,107,.82),rgba(13,31,82,.9));border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:38px 40px;box-shadow:0 24px 60px rgba(0,0,0,.4);backdrop-filter:blur(4px)}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(122,193,66,.2);color:var(--green);font-weight:900;font-size:19px;letter-spacing:.5px;padding:12px 24px;border-radius:999px;margin-bottom:20px;border:1px solid rgba(122,193,66,.45)}
+  .hero-eyebrow::before{content:"★";color:var(--gold)}
+  h1.hero-h{margin:0 0 8px;font-weight:900;font-size:42px;line-height:1.02;letter-spacing:-1.2px;text-transform:uppercase}
+  h1.hero-h .g{color:var(--gold)}
+  .hero-h-sub{font-weight:900;font-size:26px;letter-spacing:-.5px;margin:0 0 20px;color:#fff}
+  .hero-tag{display:inline-block;background:linear-gradient(180deg,#9ad96a,var(--green-2));color:#fff;font-weight:900;font-size:14px;letter-spacing:1.5px;padding:8px 18px;border-radius:8px;margin-bottom:22px}
+  .hero-sub{margin:0 0 26px;color:#cdd4ff;font-size:16px;font-weight:500;line-height:1.55;max-width:520px}
+  .hero-sub b{color:#fff;font-weight:800}
+  .hero-ctas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:30px}
+  .hero-ctas .ghost{font-weight:800;color:#9aa8d0;font-size:11px;letter-spacing:.3px}
+  .hero-chips{display:flex;gap:10px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(255,255,255,.15);max-width:560px}
+  .hero-chip{display:flex;align-items:center;gap:8px;font-weight:800;font-size:11.5px;color:#fff;letter-spacing:.3px}
+  .hero-chip .i{width:30px;height:30px;border-radius:8px;background:rgba(212,165,58,.2);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:14px}
+
+  /* RUTA — 6 levels */
+  .ruta{background:var(--navy);color:#fff;padding:70px 0;position:relative;overflow:hidden}
+  .ruta::before{content:"";position:absolute;top:-120px;right:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,165,58,.14) 0%,transparent 70%)}
+  .ruta-h{text-align:center;margin-bottom:44px;position:relative}
+  .ruta-h .pre{color:var(--gold);font-weight:900;font-size:12px;letter-spacing:3px;margin:0 0 10px;display:inline-block}
+  .ruta-h h2{margin:0;color:#fff;font-weight:900;font-size:40px;letter-spacing:-.8px;line-height:1.04}
+  .ruta-h p{margin:12px 0 0;color:#bcc6e8;font-weight:700;font-size:15px;letter-spacing:.4px}
+  .ruta-track{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:1000px;margin:0 auto}
+  .ruta-track::before{content:"";position:absolute;top:34px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--green),var(--gold));z-index:0;border-radius:2px}
+  .rl{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .rl .dot{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#fff;border:4px solid var(--navy);box-shadow:0 6px 16px rgba(0,0,0,.3);letter-spacing:-.3px}
+  .rl:nth-child(1) .dot{background:#3aa856}
+  .rl:nth-child(2) .dot{background:#6ab63f}
+  .rl:nth-child(3) .dot{background:var(--gold)}
+  .rl:nth-child(4) .dot{background:#2f7fd4}
+  .rl:nth-child(5) .dot{background:#8a5cc4}
+  .rl:nth-child(6) .dot{background:var(--navy-2);border-color:var(--gold)}
+  .rl .lbl{font-weight:800;font-size:11px;color:#bcc6e8;line-height:1.35;max-width:130px}
+  .rl .lbl b{color:#fff;display:block;font-size:12px;margin-bottom:2px}
+  .ruta-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:44px;position:relative}
+  .ruta-foot .rf{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 20px;font-weight:800;font-size:13px}
+  .ruta-foot .rf .i{color:var(--gold);font-size:16px}
+
+  /* SECTIONS */
+  .sec{padding:80px 0}
+  .sec-h{text-align:center;margin-bottom:44px}
+  .sec-h .pre{color:var(--gold-2);font-weight:900;font-size:12px;letter-spacing:3px;margin:0 0 10px;display:inline-block}
+  .sec-h h2{margin:0;color:var(--navy);font-weight:900;font-size:40px;letter-spacing:-.8px;line-height:1.05}
+  .sec-h h2 b{color:var(--green-2)}
+  .sec-h p{margin:14px auto 0;color:#3a4070;font-weight:500;font-size:15px;max-width:640px;line-height:1.55}
+
+  /* INSIGHT / big idea band */
+  .insight{background:var(--soft);padding:70px 0}
+  .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .insight-photo{position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden}
+  .insight-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+  .insight-text .pre{color:var(--gold-2);font-weight:900;font-size:12px;letter-spacing:3px;margin:0 0 12px;display:inline-block}
+  .insight-text h2{margin:0 0 16px;color:var(--navy);font-weight:900;font-size:38px;letter-spacing:-.8px;line-height:1.05}
+  .insight-text h2 .g{color:var(--gold-2)}
+  .insight-text p{margin:0 0 16px;color:#3a4070;font-size:15px;font-weight:500;line-height:1.6}
+  .insight-text p b{color:var(--navy);font-weight:800}
+  .insight-text .callout{background:#fff;border-left:5px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;font-weight:800;font-size:15px;color:var(--navy);line-height:1.4;box-shadow:0 4px 14px rgba(19,42,107,.06)}
+
+  /* WHY / reasons */
+  .why{background:#fff}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1080px;margin:0 auto}
+  .why-card{background:var(--soft);border-radius:16px;padding:26px 24px;border-top:5px solid var(--navy)}
+  .why-card:nth-child(2){border-top-color:var(--gold)}
+  .why-card:nth-child(3){border-top-color:var(--green)}
+  .why-card:nth-child(4){border-top-color:var(--gold)}
+  .why-card:nth-child(5){border-top-color:var(--green)}
+  .why-card:nth-child(6){border-top-color:var(--navy)}
+  .why-card .i{width:48px;height:48px;border-radius:12px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+  .why-card:nth-child(2) .i,.why-card:nth-child(4) .i{background:var(--gold);color:#fff}
+  .why-card:nth-child(3) .i,.why-card:nth-child(5) .i{background:var(--green);color:#fff}
+  .why-card h3{margin:0 0 6px;color:var(--navy);font-weight:900;font-size:16px;letter-spacing:.2px}
+  .why-card p{margin:0;color:#3a4070;font-size:13px;font-weight:500;line-height:1.5}
+
+  /* SCHEDULE + PRICING */
+  .sched{background:var(--navy-deep);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+  .sched::before{content:"";position:absolute;bottom:-140px;left:-140px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(212,165,58,.14) 0%,transparent 70%)}
+  .sched-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;align-items:stretch;position:relative}
+  .sched-card{background:linear-gradient(180deg,var(--navy),var(--navy-deep));border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:34px}
+  .sched-card .pre{color:var(--gold);font-weight:900;font-size:12px;letter-spacing:2.5px;margin:0 0 10px}
+  .sched-card h3{margin:0 0 22px;font-weight:900;font-size:28px;letter-spacing:-.5px;line-height:1.1}
+  .sched-clock{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border-radius:14px;padding:20px;margin-bottom:18px}
+  .sched-clock .big{font-size:40px}
+  .sched-clock .time{font-weight:900;font-size:22px;letter-spacing:-.5px;line-height:1.15}
+  .sched-clock .meta{font-weight:700;font-size:12px;color:#bcc6e8;margin-top:4px}
+  .sched-note{color:#cdd4ff;font-weight:600;font-size:13.5px;line-height:1.55}
+  .sched-note b{color:var(--gold)}
+
+  .price-card{background:#fff;color:var(--ink);border-radius:20px;padding:34px;box-shadow:0 24px 50px rgba(0,0,0,.3)}
+  .price-card .pre{color:var(--gold-2);font-weight:900;font-size:12px;letter-spacing:2.5px;margin:0 0 6px}
+  .price-card h3{margin:0 0 22px;color:var(--navy);font-weight:900;font-size:26px;letter-spacing:-.5px}
+  .price-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-bottom:20px}
+  .price-box{text-align:center;padding:18px 14px;border-radius:14px;border:2px solid #e6eaf3}
+  .price-box .l{font-weight:900;font-size:10px;letter-spacing:1.5px;color:var(--muted);margin:0 0 8px}
+  .price-box .v{font-weight:900;font-size:34px;color:var(--navy);letter-spacing:-1px;line-height:1}
+  .price-box .v small{font-size:14px;display:block;color:var(--muted);font-weight:800;margin-top:2px;letter-spacing:0}
+  .price-box.reg .v{color:var(--muted);text-decoration:line-through}
+  .price-box.disc{border-color:var(--green);background:linear-gradient(180deg,#fff,#f2faec)}
+  .price-box.disc .v{color:var(--green-2)}
+  .price-mid{background:var(--red);color:#fff;border-radius:12px;padding:12px 14px;text-align:center;font-weight:900;font-size:12px;line-height:1.25;letter-spacing:.3px}
+  .price-mid b{font-size:18px;display:block}
+  .price-level{background:var(--soft);border-radius:14px;padding:20px;text-align:center;margin-bottom:20px}
+  .price-level .pl-row{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+  .price-level .col .l{font-weight:900;font-size:10px;letter-spacing:1.2px;color:var(--muted);margin:0 0 4px}
+  .price-level .col .v{font-weight:900;font-size:26px;letter-spacing:-.5px;line-height:1}
+  .price-level .col.reg .v{color:var(--muted);text-decoration:line-through;font-size:20px}
+  .price-level .col.save .v{color:var(--red)}
+  .price-level .col.now .v{color:var(--green-2);font-size:32px}
+  .price-includes{font-size:12px;font-weight:600;color:#3a4070;line-height:1.5;margin:0 0 20px;text-align:center}
+  .price-includes b{color:var(--navy);font-weight:800}
+  .price-card .b{display:block;width:100%;text-align:center;font-weight:900;font-size:14px;letter-spacing:.4px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#9ad96a,var(--green-2));color:#fff;border:none;cursor:pointer;text-decoration:none;box-sizing:border-box}
+
+  /* MCER */
+  .mcer{background:#fff}
+  .mcer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1000px;margin:0 auto 40px}
+  .mcer-card{text-align:center;padding:22px 18px}
+  .mcer-card .i{width:56px;height:56px;border-radius:14px;background:var(--soft);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px;border:1px solid #e6eaf3}
+  .mcer-card h3{margin:0 0 6px;color:var(--navy);font-weight:900;font-size:14px;letter-spacing:.4px;text-transform:uppercase}
+  .mcer-card p{margin:0;color:#3a4070;font-size:12.5px;font-weight:500;line-height:1.5}
+  .certs-strip{background:var(--soft);border-radius:18px;padding:30px;text-align:center}
+  .certs-strip h3{margin:0 0 6px;color:var(--navy);font-weight:900;font-size:20px;letter-spacing:-.3px}
+  .certs-strip p{margin:0 0 22px;color:#3a4070;font-weight:600;font-size:13.5px}
+  .certs-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  .cert{aspect-ratio:.72/1;border-radius:10px;border:1px solid #d8deec;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px;box-shadow:0 4px 12px rgba(19,42,107,.06)}
+  .cert .badge{font-weight:900;font-size:15px;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;letter-spacing:-.3px}
+  .cert:nth-child(1) .badge{background:#3aa856}
+  .cert:nth-child(2) .badge{background:#6ab63f}
+  .cert:nth-child(3) .badge{background:var(--gold)}
+  .cert:nth-child(4) .badge{background:#2f7fd4}
+  .cert:nth-child(5) .badge{background:#8a5cc4}
+  .cert:nth-child(6) .badge{background:var(--navy-2)}
+  .cert .cl{font-weight:800;font-size:9px;color:var(--muted);letter-spacing:.5px;text-align:center;line-height:1.2}
+
+  /* OBJECTIONS */
+  .obj{background:var(--soft)}
+  .obj-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  .obj-item{background:#fff;border-radius:14px;padding:22px 26px;border:1px solid #e6eaf3;box-shadow:0 4px 14px rgba(19,42,107,.04)}
+  .obj-item .q{display:flex;align-items:center;gap:12px;font-weight:900;font-size:16px;color:var(--navy);margin:0 0 8px}
+  .obj-item .q::before{content:"“";color:var(--gold);font-size:32px;font-family:Georgia,serif;line-height:0;position:relative;top:8px}
+  .obj-item .a{margin:0;color:#3a4070;font-size:14px;font-weight:600;line-height:1.55;padding-left:24px}
+  .obj-item .a b{color:var(--green-2)}
+
+  /* FAQ */
+  .faq{background:#fff}
+  .faq-list{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .qa{background:var(--soft);border-radius:12px;padding:16px 24px;border-left:6px solid var(--navy);border-right:6px solid var(--gold);cursor:pointer}
+  .qa:nth-child(even){border-left-color:var(--gold);border-right-color:var(--green)}
+  .qa .qrow{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .qa .q{color:var(--navy);font-weight:900;font-size:13.5px;letter-spacing:.3px;margin:0}
+  .qa .chev{color:var(--navy);font-weight:900;font-size:18px;transition:transform .2s ease}
+  .qa .a{color:var(--ink);font-weight:600;font-size:13px;line-height:1.55;margin:0;max-height:0;overflow:hidden;transition:max-height .25s ease, margin .25s ease}
+  .qa.open .a{max-height:480px;margin-top:8px}
+  .qa.open .chev{transform:rotate(180deg)}
+
+  /* FINAL */
+  .final{padding:90px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:800px;height:420px;background:radial-gradient(circle,rgba(212,165,58,.18) 0%,transparent 70%)}
+  .final .pre{color:var(--gold);font-weight:900;font-size:13px;letter-spacing:3px;margin:0 0 14px;display:inline-block;position:relative}
+  .final h2{margin:0 0 14px;font-weight:900;font-size:52px;letter-spacing:-1.2px;line-height:1;position:relative;text-transform:uppercase}
+  .final h2 .g{color:var(--gold)}
+  .final p{margin:0 0 28px;color:#cdd4ff;font-weight:600;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5;position:relative}
+  .final p b{color:#fff;font-weight:900}
+  .final .row{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
+  .final .meta{margin-top:18px;color:#9aa8d0;font-weight:700;font-size:12px;letter-spacing:.5px;position:relative}
+
+  .wa-fab{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(37,211,102,.45);z-index:50;cursor:pointer;border:none}
+  .wa-fab img{width:30px;height:30px;display:block}
+  .wa-fab::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid #25d366;opacity:.5;animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.15);opacity:0}}
+
+  footer{background:#0a0f3d;color:#9aa0c8;padding:30px 0;font-size:12px;font-weight:600}
+  footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:980px){
+    .wrap{padding:0 18px}
+    .nav{padding:14px 18px;flex-wrap:wrap}
+    .insight-grid,.why-grid,.sched-grid,.mcer-grid,.ruta-track,.price-row,.certs-row{grid-template-columns:1fr}
+    .why-grid,.mcer-grid{grid-template-columns:1fr;max-width:none}
+    .ruta-track{grid-template-columns:repeat(3,1fr);gap:24px 12px}
+    .ruta-track::before{display:none}
+    .certs-row{grid-template-columns:repeat(3,1fr)}
+    .price-row{gap:12px}
+    .sched-card,.price-card{padding:24px 18px}
+    .hero{min-height:0;padding:40px 0 48px}
+    .hero-card{padding:26px 20px;border-radius:18px;width:100%;max-width:100%}
+    .hero-eyebrow{font-size:14px;padding:10px 16px;white-space:normal}
+    .cta-pill.huge{font-size:15px;padding:14px 20px;width:100%;justify-content:center}
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    h1.hero-h{font-size:28px}
+    .sec-h h2,.ruta-h h2,.insight-text h2,.final h2{font-size:30px}
+    .logo img{height:32px}
+    .insight-text h2{font-size:28px}
+    .final h2{font-size:34px}
+  }
+  @media (max-width:560px){
+    .nav .phone{display:none}
+    .ruta-track{grid-template-columns:repeat(2,1fr)}
+    .certs-row{grid-template-columns:repeat(2,1fr)}
+    .price-row{grid-template-columns:1fr}
+    .price-mid{order: -1}
+    .cta-pill{font-size:13px;padding:12px 16px}
+    .sec,.insight,.ruta,.sched{padding:48px 0}
+    .why-card,.mcer-card{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-M5B53KKW");
+</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-M5B53KKW"
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"
+  ></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="nav">
+  <a href="#" class="logo" aria-label="Fyr Lois"><img src="logo-fyrlois.svg" alt="Fyr Lois" width="140" height="53"></a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <a class="phone" href="tel:+16893225402">+1 (689) 322-5402</a>
+    <a class="cta-pill whatsapp-link" href="https://wa.me/16893225402?text=Hola%2C%20me%20interesa%20el%20Programa%20Intensivo%20de%20ingl%C3%A9s%20%28Intro%20a%20C1%20en%206%20meses%29%20de%20Fyr%20Lois." target="_blank" rel="noopener noreferrer">
+      <span class="wa"><img src="social-icons-WA%20Green.svg" alt="" width="16" height="16"></span>
+      Reservar mi cupo
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ph hero-bg"><span>REEMPLAZAR · FOTO HERO</span><span class="pdesc">Foto de la portada: dos jóvenes (16-19 años) sonriendo, con libros/mochila, fondo de aula moderna. Estilo del original. 1920×980 mín. Espacio a la izquierda para el texto.</span></div>
+  <div class="wrap hero-inner">
+    <div class="hero-card">
+      <span class="hero-eyebrow">¿Saliste del bachillerato y no estás seguro de qué hacer?</span>
+      <h1 class="hero-h">Curso Intensivo de Inglés<br><span class="g">De Intro a C1</span><br>en 6 meses.</h1>
+      <p class="hero-h-sub">Un nivel cada mes.</p>
+      <span class="hero-tag">EL MEJOR MOMENTO PARA PREPARARTE ES AHORA</span>
+      <p class="hero-sub">Acabas de salir de bachillerato. Tienes 6 meses antes de la universidad. Puedes perderlos esperando o salir <b>hablando inglés con nivel C1</b> y empezar tu carrera universitaria con ventaja real.</p>
+      <div class="hero-ctas">
+        <a class="cta-pill gold huge whatsapp-link" href="https://wa.me/16893225402?text=Hola%2C%20me%20interesa%20el%20Programa%20Intensivo%20de%20ingl%C3%A9s%20%28Intro%20a%20C1%20en%206%20meses%29%20de%20Fyr%20Lois." target="_blank" rel="noopener noreferrer">
+          <span class="wa"><img src="social-icons-WA%20Green.svg" alt="" width="16" height="16"></span>
+          Reserva tu prueba de nivelación
+        </a>
+        <span class="ghost">⚡ Respuesta por WhatsApp &lt; 10 min</span>
+      </div>
+      <div class="hero-chips">
+        <div class="hero-chip"><span class="i">🌎</span> Alineado al MCER</div>
+        <div class="hero-chip"><span class="i">🎓</span> Profesores certificados</div>
+        <div class="hero-chip"><span class="i">👥</span> Grupos reducidos</div>
+        <div class="hero-chip"><span class="i">📜</span> Certificado por nivel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUTA -->
+<section class="ruta">
+  <div class="wrap">
+    <div class="ruta-h">
+      <span class="pre">TU RUTA DE APRENDIZAJE</span>
+      <h2>6 niveles. 6 meses. <span style="color:var(--gold)">Un futuro sin límites.</span></h2>
+      <p>Empiezas donde estás — terminas hablando inglés de verdad.</p>
+    </div>
+    <div class="ruta-track">
+      <div class="rl"><div class="dot">A1</div><div class="lbl"><b>Cotidiano</b>Situaciones del día a día</div></div>
+      <div class="rl"><div class="dot">A2</div><div class="lbl"><b>Fluidez</b>Comprensión y fluidez</div></div>
+      <div class="rl"><div class="dot">B1</div><div class="lbl"><b>Independiente</b>Contextos académicos y laborales</div></div>
+      <div class="rl"><div class="dot">B1+</div><div class="lbl"><b>Seguro</b>Mayor confianza y espontaneidad</div></div>
+      <div class="rl"><div class="dot">B2</div><div class="lbl"><b>Eficaz</b>Nivel independiente y eficaz</div></div>
+      <div class="rl"><div class="dot">C1</div><div class="lbl"><b>Preciso</b>Fluidez en entornos complejos</div></div>
+    </div>
+    <div class="ruta-foot">
+      <div class="rf"><span class="i">📅</span> 1 nivel cada mes</div>
+      <div class="rf"><span class="i">⏱</span> 48 horas reloj por nivel</div>
+      <div class="rf"><span class="i">🕘</span> 12 horas por semana</div>
+      <div class="rf"><span class="i">📚</span> Lunes a jueves · 9 a. m. – 12 m.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHT / big idea -->
+<section class="insight">
+  <div class="wrap insight-grid">
+    <div class="insight-photo"><img src="imagen.webp" alt="Estudiante Fyr Lois mirando al futuro con confianza" width="4480" height="6720" loading="lazy" decoding="async"></div>
+    <div class="insight-text">
+      <span class="pre">TU FUTURO EMPIEZA CON DECISIONES INTELIGENTES</span>
+      <h2>Mientras unos <span class="g">pierden</span> seis meses esperando, otros los usan para cambiar su futuro.</h2>
+      <p>La universidad va a pedirte inglés desde el primer semestre: leer bibliografía, investigar, presentar trabajos, aplicar a becas e intercambios. <b>Los que llegan sabiendo inglés, llegan adelante.</b></p>
+      <p>Estos seis meses entre el bachillerato y la universidad son el momento perfecto — tienes el tiempo, la energía y las ganas. Después, entre parciales y trabajos, ya no lo tendrás.</p>
+      <div class="callout">Lo que hagas hoy determina las oportunidades que tendrás mañana. Invierte seis meses. Comienza la universidad con ventaja.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec why">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="pre">¿POR QUÉ ELEGIR FYR LOIS?</span>
+      <h2>No vendemos un curso. <b>Formamos personas que hablan inglés</b></h2>
+      <p>Brindamos una metodología comunicativa alineada a estándares internacionales.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="i">🏆</div><h3>27+ años de experiencia</h3><p>Formando estudiantes desde 1999. No somos una app: somos un instituto con resultados comprobados.</p></div>
+      <div class="why-card"><div class="i">💬</div><h3>Metodología comunicativa</h3><p>Hablas inglés desde el primer día. No memorizas gramática: aprendes a comunicarte en situaciones reales.</p></div>
+      <div class="why-card"><div class="i">👥</div><h3>Grupos reducidos</h3><p>Máximo 8 alumnos por grupo. Atención personalizada y tiempo real para que cada quien practique.</p></div>
+      <div class="why-card"><div class="i">📈</div><h3>Evaluación continua</h3><p>Seguimiento constante de tu progreso. Sabes exactamente cómo vas y qué te falta para avanzar.</p></div>
+      <div class="why-card"><div class="i">📜</div><h3>Certificación por nivel</h3><p>Recibes un certificado al aprobar cada nivel, un logro que acredita tus competencias y te acompaña siempre.</p></div>
+      <div class="why-card"><div class="i">🌎</div><h3>Alineado al MCER</h3><p>Aprendes con los estándares internacionales que reconocen universidades y empleadores en todo el mundo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE + PRICING -->
+<section class="sched">
+  <div class="wrap sched-grid">
+    <div class="sched-card">
+      <p class="pre">HORARIO INTENSIVO PENSADO PARA TI</p>
+      <h3>Estudias en la mañana. <span style="color:var(--gold)">La tarde es tuya.</span></h3>
+      <div class="sched-clock">
+        <span class="big">🕘</span>
+        <div>
+          <div class="time">9:00 a. m. – 12:00 m.</div>
+          <div class="meta">LUNES A JUEVES · 3 HORAS DIARIAS</div>
+        </div>
+      </div>
+      <p class="sched-note">Tendrás las <b>tardes libres</b> para estudiar, practicar deportes, emprender proyectos, trabajar o simplemente descansar. Inglés en la mañana, vida en la tarde.</p>
+    </div>
+    <div class="price-card">
+      <p class="pre">INVERSIÓN INTELIGENTE, RESULTADOS REALES</p>
+      <h3>Precio por hora</h3>
+      <div class="price-row">
+        <div class="price-box reg"><p class="l">PRECIO REGULAR</p><p class="v">$16<small>por hora</small></p></div>
+        <div class="price-mid">25% OFF<b>PRIMERAS 50 PERSONAS</b></div>
+        <div class="price-box disc"><p class="l">CON DESCUENTO</p><p class="v">$12<small>por hora</small></p></div>
+      </div>
+      <p class="price-includes"><b>Incluye:</b> Clases en vivo · Profesores certificados · Material didáctico · Evaluaciones continuas · Seguimiento académico · Certificado al aprobar el nivel.</p>
+      <a class="b whatsapp-link" href="https://wa.me/16893225402?text=Hola%2C%20me%20interesa%20el%20Programa%20Intensivo%20de%20ingl%C3%A9s%20%28Intro%20a%20C1%20en%206%20meses%29%20de%20Fyr%20Lois." target="_blank" rel="noopener noreferrer">Aparta tu cupo con 25% OFF</a>
+    </div>
+  </div>
+</section>
+
+<!-- MCER -->
+<section class="sec mcer">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="pre">Brindamos una educación de primer nivel</span>
+      <h2>Marco Común Europeo <b>(MCER)</b></h2>
+      <p>El estándar internacional más usado en el mundo para describir habilidades lingüísticas. Define 6 niveles de competencia y permite que tu aprendizaje esté alineado con criterios reconocidos globalmente.</p>
+    </div>
+    <div class="mcer-grid">
+      <div class="mcer-card"><div class="i">💡</div><h3>Comprende</h3><p>Describe lo que puedes hacer con el idioma en situaciones reales.</p></div>
+      <div class="mcer-card"><div class="i">🏗️</div><h3>Estructura</h3><p>Organiza el aprendizaje en 6 niveles progresivos y medibles.</p></div>
+      <div class="mcer-card"><div class="i">🗣️</div><h3>Competencias</h3><p>Desarrolla las 4 habilidades: Speaking, Listening, Reading y Writing.</p></div>
+      <div class="mcer-card"><div class="i">🌐</div><h3>Reconocimiento</h3><p>Tus certificados están alineados al MCER, reconocidos internacionalmente.</p></div>
+    </div>
+    <div class="certs-strip">
+      <h3>Un certificado al culminar cada nivel</h3>
+      <p>Al aprobar cada nivel recibes un certificado que acredita tus competencias según el MCER. Un logro que te acompaña siempre.</p>
+      <div class="certs-row">
+        <div class="cert"><div class="badge">INT</div><div class="cl">INTRO</div></div>
+        <div class="cert"><div class="badge">A1</div><div class="cl">NIVEL A1</div></div>
+        <div class="cert"><div class="badge">A2</div><div class="cl">NIVEL A2</div></div>
+        <div class="cert"><div class="badge">B1</div><div class="cl">NIVEL B1</div></div>
+        <div class="cert"><div class="badge">B2</div><div class="cl">NIVEL B2</div></div>
+        <div class="cert"><div class="badge">C1</div><div class="cl">NIVEL C1</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="sec obj">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="pre">LO QUE PROBABLEMENTE ESTÁS PENSANDO</span>
+      <h2>Sin vueltas. <b>Aquí las respuestas.</b></h2>
+    </div>
+    <div class="obj-list">
+      <div class="obj-item">
+        <p class="q">No tengo tiempo”</p>
+        <p class="a">Son solo <b>3 horas diarias, de lunes a jueves</b>. Terminas al mediodía y te queda toda la tarde libre. Es el momento con más tiempo libre que vas a tener en años, aprovéchalo.</p>
+      </div>
+      <div class="obj-item">
+        <p class="q">Es muy difícil, no sé si voy a poder”</p>
+        <p class="a">Empiezas exactamente en el nivel que te corresponde gracias a una <b>prueba de ubicación gratuita</b>. Nadie empieza donde no debe, por eso avanzas sin frustrarte.</p>
+      </div>
+      <div class="obj-item">
+        <p class="q">No sé si realmente voy a aprender”</p>
+        <p class="a">La metodología desarrolla las <b>4 competencias del idioma</b> con práctica constante, grupos de máximo 8 personas y seguimiento académico. Si asistes y practicas, avanzas. 27 años lo respaldan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq">
+  <div class="wrap">
+    <div class="sec-h"><span class="pre">PREGUNTAS FRECUENTES</span><h2>Todo lo que <b>necesitas saber</b></h2></div>
+    <div class="faq-list" id="faqList">
+      <div class="qa"><div class="qrow"><p class="q">¿CUÁNTO DURA EL PROGRAMA COMPLETO?</p><span class="chev">▾</span></div><p class="a">6 meses. Ves 1 mes por nivel, recibes tu certificado al culminar cada uno y avanzas en poco tiempo del A1 al C1.</p></div>
+      <div class="qa"><div class="qrow"><p class="q">¿TENGO QUE HACER LOS 6 NIVELES?</p><span class="chev">▾</span></div><p class="a">Puedes empezar exactamente en el nivel adecuado para ti tomando nuestra prueba de nivelación gratuita. Inicias desde el punto ideal para ti y avanzas motivado.</p></div>
+      <div class="qa"><div class="qrow"><p class="q">¿CUÁNTO CUESTA?</p><span class="chev">▾</span></div><p class="a">Cada hora tiene un costo de $16. Cada mes ves 48 horas y dependiendo del momento que te inscribas puedes contar con un descuento.</p></div>
+      <div class="qa"><div class="qrow"><p class="q">¿QUÉ INCLUYE EL PRECIO?</p><span class="chev">▾</span></div><p class="a">Tienes acceso a las clases, la guía y seguimiento académico de un profesor certificado, material didáctico, evaluaciones continuas y un certificado por cada nivel que culmines.</p></div>
+      <div class="qa"><div class="qrow"><p class="q">¿EL CERTIFICADO SIRVE PARA LA UNIVERSIDAD?</p><span class="chev">▾</span></div><p class="a">Cada uno de los certificados que obtengas con nosotros puede ser legalizado y apostillado. En caso de que requieras presentar un examen académico como el TOEFL o IELTS, para tu acceso a la universidad, podemos ofrecerte un curso diseñado específicamente para lograr tu meta en estas pruebas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <span class="pre">SEIS MESES PUEDEN CAMBIAR TU FUTURO</span>
+    <h2>Comienza la universidad <span class="g">con ventaja.</span></h2>
+    <p>Reserva tu <b>prueba de ubicación gratuita</b> y asegura tu cupo con 25% de descuento — solo para las primeras 50 personas. Te respondemos en menos de 10 minutos.</p>
+    <div class="row">
+      <a class="cta-pill gold huge whatsapp-link" href="https://wa.me/16893225402?text=Hola%2C%20me%20interesa%20el%20Programa%20Intensivo%20de%20ingl%C3%A9s%20%28Intro%20a%20C1%20en%206%20meses%29%20de%20Fyr%20Lois." target="_blank" rel="noopener noreferrer">
+        <span class="wa"><img src="social-icons-WA%20Green.svg" alt="" width="16" height="16"></span>
+        Reservar mi cupo ahora
+      </a>
+    </div>
+    <p class="meta">⏱ Respuesta &lt; 10 min · WhatsApp +1 (689) 322-5402 · Sin compromiso</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div>© 2026 Fyr Lois Language Institute · 27+ años formando estudiantes para un mundo global</div>
+    <div>WhatsApp · Instagram · TikTok · www.fyrlois.com</div>
+  </div>
+</footer>
+
+<a class="wa-fab whatsapp-link" aria-label="WhatsApp" href="https://wa.me/16893225402?text=Hola%2C%20me%20interesa%20el%20Programa%20Intensivo%20de%20ingl%C3%A9s%20%28Intro%20a%20C1%20en%206%20meses%29%20de%20Fyr%20Lois." target="_blank" rel="noopener noreferrer">
+  <img src="social-icons-WA%20WT.svg" alt="" width="30" height="30">
+</a>
+
+<script>
+  document.querySelectorAll('#faqList .qa').forEach(qa=>{
+    qa.addEventListener('click', ()=> qa.classList.toggle('open'));
+  });
+</script>
+</body>
+</html>
