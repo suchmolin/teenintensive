@@ -49,10 +49,8 @@
 
   /* HERO */
   .hero{position:relative;min-height:640px;color:#fff;overflow:hidden;display:flex;align-items:center;background:var(--navy-deep)}
-  .hero .ph.hero-bg{position:absolute;inset:0;border:none;background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 55%,#2f52a8 100%);font-size:13px;color:rgba(255,255,255,.5);align-items:flex-end;justify-content:flex-end;padding:24px 32px}
-  .hero .ph.hero-bg::before{font-size:48px;opacity:.55}
-  .hero .ph.hero-bg .pdesc{color:rgba(255,255,255,.45);font-size:12px;max-width:400px;margin-top:8px}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,42,107,.9) 0%,rgba(19,42,107,.6) 48%,rgba(19,42,107,.15) 78%,transparent 100%)}
+  .hero-bg{position:absolute;inset:0;display:none;pointer-events:none}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,42,107,.9) 0%,rgba(19,42,107,.65) 42%,rgba(19,42,107,.25) 72%,rgba(19,42,107,.1) 100%);z-index:1}
   .hero-inner{position:relative;z-index:2;width:100%;padding:64px 0}
   .hero-card{max-width:640px;background:linear-gradient(180deg,rgba(19,42,107,.82),rgba(13,31,82,.9));border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:38px 40px;box-shadow:0 24px 60px rgba(0,0,0,.4);backdrop-filter:blur(4px)}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(122,193,66,.2);color:var(--green);font-weight:900;font-size:19px;letter-spacing:.5px;padding:12px 24px;border-radius:999px;margin-bottom:20px;border:1px solid rgba(122,193,66,.45)}
@@ -68,6 +66,14 @@
   .hero-chips{display:flex;gap:10px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(255,255,255,.15);max-width:560px}
   .hero-chip{display:flex;align-items:center;gap:8px;font-weight:800;font-size:11.5px;color:#fff;letter-spacing:.3px}
   .hero-chip .i{width:30px;height:30px;border-radius:8px;background:rgba(212,165,58,.2);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:14px}
+
+  @media (min-width:981px){
+    .hero-bg{
+      display:block;
+      background:url("heroteen.webp") center / cover no-repeat;
+      transform:scaleX(-1);
+    }
+  }
 
   /* RUTA — 6 levels */
   .ruta{background:var(--navy);color:#fff;padding:70px 0;position:relative;overflow:hidden}
@@ -298,7 +304,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="ph hero-bg"><span>REEMPLAZAR · FOTO HERO</span><span class="pdesc">Foto de la portada: dos jóvenes (16-19 años) sonriendo, con libros/mochila, fondo de aula moderna. Estilo del original. 1920×980 mín. Espacio a la izquierda para el texto.</span></div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap hero-inner">
     <div class="hero-card">
       <span class="hero-eyebrow">¿Saliste del bachillerato y no estás seguro de qué hacer?</span>
